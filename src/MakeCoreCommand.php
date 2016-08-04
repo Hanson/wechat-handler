@@ -106,7 +106,7 @@ class MakeCoreCommand extends Command
         return str_replace(
             '{{namespace}}',
             $this->getAppNamespace(),
-            file_get_contents(__DIR__.'/stubs/controller/Wechat/'.$controller.'.stub')
+            file_get_contents(__DIR__.'/stubs/controller/'.$controller.'.stub')
         );
     }
 
