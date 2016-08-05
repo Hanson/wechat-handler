@@ -21,7 +21,7 @@ class MakeCoreCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Scaffold basic login and registration views and routes';
+    protected $description = 'create handler/controller/config for easyWechat';
 
     /**
      * The handlers that need to be exported.
@@ -58,6 +58,8 @@ class MakeCoreCommand extends Command
 
         $this->createHandlers();
 
+        $this->createConfig();
+
         $this->makeControllers('HomeController');
         $this->makeControllers('BaseController');
     }
@@ -91,6 +93,13 @@ class MakeCoreCommand extends Command
 
             copy(__DIR__.'/stubs/handlers/'.$key, $path);
         }
+    }
+
+    protected function createConfig()
+    {
+        $path = config_path('wechat.php');
+
+        copy(__DIR__.'/stubs/wechat.stub', $path);
     }
 
     protected function makeControllers($controller)

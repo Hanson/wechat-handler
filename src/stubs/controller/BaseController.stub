@@ -17,9 +17,9 @@ class BaseController extends Controller
      */
     private $option;
 
-    public function __construct()
+    public function __construct($option = null)
     {
-        $this->option = config('wechat');
+        $this->option = $option ? : config('wechat');
 
         $this->initApplication();
     }
