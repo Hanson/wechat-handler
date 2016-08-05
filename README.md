@@ -3,7 +3,9 @@ A package to create some base handler for wechat events faster!
 帮你更快地生成微信事件文件
 
 ## 依赖
+
 laravel 5+ / lumen
+
 EasyWechat 3+
 
 ## 安装
