@@ -4,7 +4,7 @@ A package to create some base handler for wechat events faster!
 
 ## 依赖
 
-laravel 5+ / lumen
+laravel 5+ (lumen 请看 [wechat](https://github.com/HanSon/wechat))
 
 EasyWechat 3+
 
