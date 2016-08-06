@@ -71,27 +71,23 @@ class MakeCoreCommand extends Command
      */
     protected function createDirectories()
     {
-        if (! is_dir(base_path($this->appPath() . '/Handlers'))) {
-            mkdir(base_path($this->appPath() . '/Handlers'), 0755, true);
+        if (! is_dir(app_path('Handlers'))) {
+            mkdir(app_path('Handlers'), 0755, true);
         }
 
-        if (! is_dir(base_path($this->appPath() . '/Handlers/EventHandlers'))) {
-            mkdir(base_path($this->appPath() . '/Handlers/EventHandlers'), 0755, true);
+        if (! is_dir(app_path('Handlers/EventHandlers'))) {
+            mkdir(app_path('Handlers/EventHandlers'), 0755, true);
         }
 
-        if (! is_dir(base_path($this->appPath() . '/Http/Controllers/Wechat'))) {
-            mkdir(base_path($this->appPath() . '/Http/Controllers/Wechat'), 0755, true);
-        }
-
-        if (! is_dir(base_path('config'))) {
-            mkdir(base_path('config'), 0755, true);
+        if (! is_dir(app_path('Http/Controllers/Wechat'))) {
+            mkdir(app_path('Http/Controllers/Wechat'), 0755, true);
         }
     }
 
     protected function createHandlers()
     {
         foreach ($this->handlers as $key => $handler) {
-            $path = base_path($this->appPath() . '/Handlers/'.$handler);
+            $path = app_path('Handlers/'.$handler);
 
             $this->line('<info>Created Handler:</info> '.$path);
 
@@ -101,7 +97,7 @@ class MakeCoreCommand extends Command
 
     protected function createConfig()
     {
-        $path = base_path('config/wechat.php');
+        $path = config_path('wechat.php');
 
         copy(__DIR__.'/stubs/wechat.stub', $path);
     }
@@ -109,7 +105,7 @@ class MakeCoreCommand extends Command
     protected function makeControllers($controller)
     {
         file_put_contents(
-            base_path($this->appPath() . '/Http/Controllers/Wechat/'.$controller.'.php'),
+            app_path('Http/Controllers/Wechat/'.$controller.'.php'),
             $this->compileControllerStub($controller)
         );
     }
@@ -121,13 +117,6 @@ class MakeCoreCommand extends Command
             $this->getAppNamespace(),
             file_get_contents(__DIR__.'/stubs/controller/'.$controller.'.stub')
         );
-    }
-
-    protected function appPath()
-    {
-        $basePath = base_path();
-        
-        return substr($basePath, 0, strlen($basePath) - 1);
     }
 
 }
