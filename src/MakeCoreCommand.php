@@ -29,22 +29,22 @@ class MakeCoreCommand extends Command
      * @var array
      */
     protected $handlers = [
-        'EventHandler.stub' => 'EventHandler.php',
-        'HandlerInterface.stub' => 'HandlerInterface.php',
-        'ImageHandler.stub' => 'ImageHandler.php',
-        'LinkHandler.stub' => 'LinkHandler.php',
-        'LocationHandler.stub' => 'LocationHandler.php',
-        'ShortVideoHandler.stub' => 'ShortVideoHandler.php',
-        'VideoHandler.stub' => 'VideoHandler.php',
-        'TextHandler.stub' => 'TextHandler.php',
-        'VoiceHandler.stub' => 'VoiceHandler.php',
-        'WechatHandler.stub' => 'WechatHandler.php',
-        'events/LocationHandler.stub' => 'EventHandlers/LocationHandler.php',
-        'events/ScanHandler.stub' => 'EventHandlers/ScanHandler.php',
-        'events/SubscribeHandler.stub' => 'EventHandlers/SubscribeHandler.php',
-        'events/UnSubscribeHandler.stub' => 'EventHandlers/UnSubscribeHandler.php',
-        'events/ViewHandler.stub' => 'EventHandlers/ViewHandler.php',
-        'events/ClickHandler.stub' => 'EventHandlers/ClickHandler.php',
+        'EventHandler.stub' => 'EventHandler',
+        'HandlerInterface.stub' => 'HandlerInterface',
+        'ImageHandler.stub' => 'ImageHandler',
+        'LinkHandler.stub' => 'LinkHandler',
+        'LocationHandler.stub' => 'LocationHandler',
+        'ShortVideoHandler.stub' => 'ShortVideoHandler',
+        'VideoHandler.stub' => 'VideoHandler',
+        'TextHandler.stub' => 'TextHandler',
+        'VoiceHandler.stub' => 'VoiceHandler',
+        'WechatHandler.stub' => 'WechatHandler',
+        'events/LocationHandler.stub' => 'EventHandlers/LocationHandler',
+        'events/ScanHandler.stub' => 'EventHandlers/ScanHandler',
+        'events/SubscribeHandler.stub' => 'EventHandlers/SubscribeHandler',
+        'events/UnSubscribeHandler.stub' => 'EventHandlers/UnSubscribeHandler',
+        'events/ViewHandler.stub' => 'EventHandlers/ViewHandler',
+        'events/ClickHandler.stub' => 'EventHandlers/ClickHandler',
     ];
 
     /**
@@ -87,7 +87,7 @@ class MakeCoreCommand extends Command
     protected function createHandlers()
     {
         foreach ($this->handlers as $key => $handler) {
-            $path = app_path('Handlers/'.$handler);
+            $path = app_path('Handlers/'.$handler.'.php');
 
             $this->line('<info>Created Handler:</info> '.$path);
 
