@@ -91,7 +91,7 @@ class MakeCoreCommand extends Command
 
             $this->line('<info>Created Handler:</info> '.$path);
 
-            copy(__DIR__.'/stubs/handlers/'.$key, $path);
+            file_put_contents($path, $this->compileHandlerStub($handler));
         }
     }
 
@@ -116,6 +116,15 @@ class MakeCoreCommand extends Command
             '{{namespace}}',
             $this->getAppNamespace(),
             file_get_contents(__DIR__.'/stubs/controller/'.$controller.'.stub')
+        );
+    }
+
+    protected function compileHandlerStub($handler)
+    {
+        return str_replace(
+            '{{namespace}}',
+            $this->getAppNamespace(),
+            file_get_contents(__DIR__.'/stubs/handlers/'.$handler.'.stub')
         );
     }
 

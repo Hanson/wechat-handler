@@ -1,8 +1,7 @@
 <?php
 
-namespace {{namespace}}Http\Controllers;
+namespace {{namespace}}Http\Controllers\Wechat;
 
-use App\Http\Controllers\Wechat\BaseController;
 use EasyWeChat\Server\Guard;
 
 /**
