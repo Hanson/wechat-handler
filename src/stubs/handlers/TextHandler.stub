@@ -16,7 +16,6 @@ class TextHandler implements HandlerInterface
 
     public static function run($message)
     {
-        Message::create(['open_id' => $message->FromUserName, 'content' => $message->Content]);
         return (string)$message.'text';
     }
 }
