@@ -11,7 +11,7 @@ EasyWechat 3+
 ## 安装
 
 ```
-composer require composer require hanson/wechat-handler
+composer require hanson/wechat-handler
 ```
 
 ## 使用
